@@ -1,0 +1,18 @@
+<h1>Tracks List</h1>
+
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="name" placeholder="Enter new track name" required>
+  <button type="submit">Add Track</button>
+</form>
+
+<hr>
+
+{% for track in tracks %}
+  <p>
+    {{ track.name }}
+    <a href="{% url 'show_students' track.id %}">Show Students</a>
+  </p>
+{% empty %}
+  <p>No tracks yet.</p>
+{% endfor %}

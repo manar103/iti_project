@@ -1,0 +1,9 @@
+<h1>Students in {{ track.name }}</h1>
+<ul>
+  {% for student in students %}
+    <li>{{ student.name }}</li>
+  {% empty %}
+    <li>No students enrolled in this track.</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'track_list' %}">Back</a>
